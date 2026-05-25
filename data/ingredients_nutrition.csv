@@ -1,0 +1,134 @@
+nguyên_liệu_tên,kcal_trên_100g,protein_g,carb_g,fat_g,đơn_vị,danh_mục,ghi_chú
+Thịt bò,250,26.3,0.0,15.0,gram,Thịt,Thịt bò sống
+Thịt gà,165,31.0,0.0,3.6,gram,Thịt,Ngực gà sống
+Thịt lợn,242,27.5,0.0,13.7,gram,Thịt,Thịt lợn sống
+Tôm,99,20.9,0.9,0.3,gram,Hải sản,Tôm sống
+Cua,102,20.2,0.6,1.5,gram,Hải sản,Cua sống
+Cá,82,17.4,0.0,0.7,gram,Hải sản,Cá trắng sống
+Gan gà,165,26.5,1.3,5.5,gram,Thịt,Gan gà
+Thịt ba chỉ,518,10.6,0.0,50.0,gram,Thịt,Thịt lợn ba chỉ sống
+Xương tủy bò,300,25.0,0.0,22.0,gram,Thịt,Xương tủy
+Lòng heo,165,14.5,1.0,11.5,gram,Thịt,Lòng heo hỗn hợp (gan/ruột/dạ dày)
+Dạ dày heo,100,16.0,0.0,3.5,gram,Thịt,Dạ dày heo nấu chín
+Nước dùng gà,50,4.5,2.8,1.2,ml,Nước dùng,Nước dùng gà nhẹ
+Nước dùng lợn,55,5.0,3.0,1.5,ml,Nước dùng,Nước dùng xương lợn
+Nước dùng bò,60,5.5,2.5,2.0,ml,Nước dùng,Nước dùng xương bò
+Nước dùng cá,35,4.5,1.5,1.0,ml,Nước dùng,Nước dùng xương cá
+Bánh phở khô,370,8.2,75.0,1.4,gram,Mỳ,Bánh phở khô chưa nấu
+Mỳ trứng,138,5.0,25.1,1.1,gram,Mỳ,Mỳ trứng chưa nấu
+Bún khô,347,8.0,77.0,0.7,gram,Mỳ,Bún gạo khô
+Gạo nấu chín,130,2.7,28.0,0.3,gram,Ngũ cốc,Cơm gạo nấu chín trên 100g
+Xôi gạo nếp,97,2.0,21.8,0.3,gram,Ngũ cốc,Xôi gạo nếp nấu chín trên 100g
+Bánh tráng,356,8.3,82.0,0.3,gram,Bánh tráng,Bánh tráng cuốn tươi
+Bột năng,357,0.1,88.0,0.1,gram,Bột,Tinh bột sắn sống
+Bột gạo,366,6.0,80.0,1.4,gram,Bột,Bột gạo sống
+Bánh mì baguette,265,9.0,50.0,3.5,gram,Bánh mì,Bánh mì baguette Pháp
+Bánh mì chiên giòn,395,8.5,48.0,18.0,gram,Bánh mì,Bánh mì chiên giòn
+Trứng,155,13.0,1.1,11.0,gram,Protein,1 quả ≈ 50g - nhập theo gram
+Tàu hủ,61,6.9,2.0,3.5,gram,Protein,Tàu hủ trơn
+Đậu xanh,347,23.9,63.0,1.2,gram,Đậu,Đậu xanh khô
+Hành tây,40,1.1,9.0,0.1,gram,Rau,Hành tây trắng sống
+Tỏi,149,6.3,33.0,0.5,gram,Rau,Tỏi sống
+Gừng,80,1.8,18.0,0.8,gram,Rau,Gừng sống
+Ớt,40,2.0,8.8,0.4,gram,Rau,Ớt tươi đỏ
+Cà chua,18,0.9,3.9,0.2,gram,Rau,Cà chua sống
+Xà lách,15,1.4,2.9,0.2,gram,Rau,Xà lách romaine
+Bắp cải,25,1.3,5.8,0.1,gram,Rau,Bắp cải sống
+Cà rốt,41,0.9,10.0,0.2,gram,Rau,Cà rốt sống
+Dưa chuột,16,0.7,3.6,0.1,gram,Rau,Dưa chuột sống
+Nấm,22,3.1,3.3,0.3,gram,Rau,Nấm nút
+Rau muống,19,2.2,3.7,0.2,gram,Rau,Rau muống sống
+Giá đỗ,30,3.0,5.5,0.2,gram,Rau,Giá đỗ sống
+Dứa,50,0.5,13.0,0.1,gram,Trái cây,Dứa tươi
+Chanh,30,0.7,11.0,0.2,gram,Trái cây,1 quả ≈ 40g - nhập theo gram
+Ngô,86,3.3,19.0,1.4,gram,Ngũ cốc,Ngô nấu chín
+Rau mùi,23,2.1,3.3,0.3,gram,Thảo dược,Rau mùi tươi
+Hành lá,32,2.6,7.3,0.2,gram,Thảo dược,Hành lá xanh
+Rau húng,27,3.2,0.6,0.6,gram,Thảo dược,Rau húng Thái
+Rau thơm,70,3.8,15.0,0.9,gram,Thảo dược,Rau thơm tươi
+Thơm,43,3.5,7.0,0.7,gram,Thảo dược,Cây thơm tươi
+Sả,99,1.8,18.0,0.5,gram,Thảo dược,Sả tươi
+Hành khô,72,2.5,16.0,0.1,gram,Rau,Hành khô đỏ
+Riềng,80,1.8,18.0,0.8,gram,Rau,Riềng tươi
+Nghệ,354,9.7,64.0,9.9,gram,Gia vị,Rễ nghệ tươi
+Tiêu đen,251,10.0,64.0,3.3,gram,Gia vị,Tiêu xay
+Nước mắm,61,10.5,0.0,0.1,ml,Gia vị,Nước mắm
+Xì dầu,54,8.1,1.5,0.0,ml,Gia vị,Xì dầu
+Mắm tôm,45,9.0,0.0,0.5,ml,Gia vị,Mắm tôm / mắm ruốc
+Me,239,2.8,63.0,0.6,gram,Gia vị,Mẽ dạng pasta
+Nước cốt dừa,230,2.3,5.5,24.0,ml,Gia vị,Nước cốt dừa đậm đặc
+Pâté lợn,390,12.0,0.0,38.0,gram,Gia vị,Pâté hộp
+Chả lụa,215,15.0,2.5,16.5,gram,Gia vị,Chả lụa / giò lụa Việt
+Tương ớt,90,4.0,15.0,1.0,gram,Gia vị,Tương ớt / sa tế
+Muối,0,0.0,0.0,0.0,gram,Gia vị,Muối ăn
+Đường,387,0.0,100.0,0.0,gram,Gia vị,Đường trắng
+Giấm,18,0.04,0.4,0.0,ml,Gia vị,Giấm gạo
+Dầu mè,884,0.0,0.0,100.0,ml,Dầu,Dầu mè tinh khiết
+Dầu ăn,884,0.0,0.0,100.0,ml,Dầu,Dầu thực vật
+Mỡ heo,812,1.1,0.0,90.0,gram,Dầu,Mỡ heo tinh khiết
+Mỡ hành,450,1.0,3.0,48.0,ml,Dầu,Dầu mỡ hành phi
+Đậu phộng,567,25.8,16.1,49.2,gram,Hạt,Đậu phộng sống
+Hạt mè,563,17.7,23.5,50.0,gram,Hạt,Hạt mè sống
+Bún tươi,109,2.5,25.0,0.2,gram,Mỳ,Bún gạo tươi nấu chín
+Bún lá,109,2.5,25.0,0.2,gram,Mỳ,Bún gạo tươi dạng lá
+Mì Quảng,148,3.2,32.0,0.8,gram,Mỳ,Sợi mì gạo nghệ tươi
+Bánh canh khô,355,7.0,80.0,0.5,gram,Mỳ,Bánh canh bột gạo/sắn khô
+Bánh cao lầu,160,5.0,33.0,0.9,gram,Mỳ,Sợi mì Cao Lầu Hội An tươi
+Bánh hủ tiếu,109,2.5,25.0,0.2,gram,Mỳ,Sợi hủ tiếu gạo tươi
+Gạo nếp,360,6.7,79.0,0.7,gram,Ngũ cốc,Gạo nếp khô chưa nấu
+Gạo tẻ,360,6.8,79.3,0.5,gram,Ngũ cốc,Gạo tẻ trắng khô chưa nấu
+Gạo tấm,360,6.8,79.3,0.5,gram,Ngũ cốc,Gạo tấm trắng khô chưa nấu
+Thịt nạc,143,21.5,0.0,6.0,gram,Thịt,Thịt heo nạc đùi sống
+Thịt heo,242,27.5,0.0,13.7,gram,Thịt,Thịt heo nướng sả
+Sườn heo,280,17.0,0.0,23.0,gram,Thịt,Sườn heo nướng kể cả xương
+Heo quay,395,19.0,0.0,35.0,gram,Thịt,Heo quay da giòn kiểu Việt
+Thịt xá xíu,268,19.5,9.5,16.0,gram,Thịt,Thịt heo xá xíu nướng
+Gan heo,134,20.4,3.8,3.7,gram,Thịt,Gan heo sống
+Tim heo,118,17.1,0.0,4.4,gram,Thịt,Tim heo sống/luộc
+Dạ dày,100,16.0,0.0,3.5,gram,Thịt,Dạ dày heo nấu chín
+Dồi heo,210,12.0,5.0,16.0,gram,Thịt,Dồi heo hấp/luộc
+Dồi trường,175,11.0,3.0,13.0,gram,Thịt,Dồi trường heo
+Giò heo,245,18.5,0.0,19.0,gram,Thịt,Chân giò heo luộc kể cả da
+Xương heo,75,7.0,0.0,5.0,gram,Thịt,Xương heo phần thịt bám
+Xương ống,55,5.5,0.0,3.5,gram,Thịt,Xương ống heo phần thịt gân bám
+Bì heo,310,28.0,5.0,20.0,gram,Thịt,Bì heo thái sợi trộn thính
+Huyết heo,55,10.0,0.5,0.5,gram,Thịt,Huyết heo đông luộc
+Tóp mỡ,650,8.0,0.0,68.0,gram,Thịt,Tóp mỡ heo chiên giòn
+Cá lóc,92,18.0,0.0,2.2,gram,Hải sản,Cá lóc tươi sống
+Mực,92,15.6,3.1,1.4,gram,Hải sản,Mực tươi sống
+Cua cà,95,17.0,1.5,1.8,gram,Hải sản,Cua cà (cua nhỏ) sống
+Gạch cua,150,12.0,1.0,11.0,gram,Hải sản,Gạch cua đồng
+Tôm chấy,295,55.0,3.0,4.5,gram,Hải sản,Tôm khô chấy giã nhỏ
+Tép khô,295,56.0,2.0,4.0,gram,Hải sản,Tép khô
+Mắm cá,90,9.0,2.0,4.0,ml,Gia vị,Mắm cá sặc/cá linh lên men
+Đậu hũ,190,13.0,5.0,13.0,gram,Protein,Đậu hũ chiên giòn
+Trứng gà,155,13.0,1.1,11.0,gram,Protein,Trứng gà toàn phần ~50g/quả
+Trứng cút,158,13.1,0.4,11.1,gram,Protein,Trứng cút toàn phần ~10g/quả
+Lòng đỏ trứng,322,15.9,3.6,26.5,gram,Protein,Lòng đỏ trứng muối
+Chả giò,280,12.0,18.0,18.0,gram,Thịt,Chả giò chiên giòn
+Chả cốm,230,14.0,15.0,12.0,gram,Thịt,Chả cốm Hà Nội
+Chả trứng,195,14.0,3.0,14.0,gram,Thịt,Chả trứng hấp kiểu Nam
+Bột mì,364,10.3,76.3,1.0,gram,Bột,Bột mì đa dụng
+Bột tẻ,366,6.0,80.0,1.4,gram,Bột,Bột gạo tẻ xay mịn
+Bột nghệ,354,7.8,67.1,9.9,gram,Gia vị,Bột nghệ vàng xay khô
+Bột tôm,280,50.0,5.0,4.0,gram,Gia vị,Bột tôm khô xay
+Nấm mộc nhĩ,35,0.5,8.3,0.2,gram,Rau,Mộc nhĩ ngâm nở nấu chín
+Hành tím,40,1.1,9.3,0.1,gram,Rau,Hành tím tươi
+Dọc mùng,15,0.9,3.2,0.1,gram,Rau,Dọc mùng / bạc hà tươi
+Rau sống,20,1.5,3.5,0.2,gram,Rau,Rau sống hỗn hợp xà lách giá thơm
+Rau mầm,30,3.8,3.9,0.5,gram,Rau,Rau mầm xanh tươi
+Rau đắng,23,2.2,4.0,0.3,gram,Rau,Rau đắng tươi
+Ngò rí,23,2.1,3.3,0.3,gram,Thảo dược,Ngò rí / rau mùi tươi
+Giá chần,30,3.0,5.5,0.2,gram,Rau,Giá đỗ chần qua nước sôi
+Tía tô,37,3.4,6.5,0.7,gram,Thảo dược,Lá tía tô tươi
+Cà tím,25,1.0,5.9,0.2,gram,Rau,Cà tím tươi sống
+Sầu riêng,147,1.5,27.1,5.3,gram,Trái cây,Thịt múi sầu riêng tươi
+Nước dùng xương,55,5.0,2.5,2.0,ml,Nước dùng,Nước hầm xương hỗn hợp
+Nước màu,290,0.0,72.0,0.0,ml,Gia vị,Nước màu đường thắng caramel
+Nước tương xíu,80,5.0,12.0,0.5,ml,Gia vị,Nước tương ngọt xíu quách
+Đồ chua,30,0.5,7.0,0.1,gram,Gia vị,Đồ chua cà rốt và củ cải ngâm
+Ớt sừng,30,1.5,6.5,0.3,gram,Gia vị,Ớt sừng trâu / ớt Đà Lạt
+Tiêu sọ,296,10.4,67.0,2.1,gram,Gia vị,Tiêu sọ / tiêu trắng nguyên hạt
+Xúc xích,290,12.0,5.0,25.0,gram,Thịt,Xúc xích heo kiểu Việt
+Phô mai,300,17.0,4.0,24.0,gram,Protein,Phô mai mềm / con bò cười
+Mỡ,812,1.1,0.0,90.0,gram,Dầu,Mỡ heo nước

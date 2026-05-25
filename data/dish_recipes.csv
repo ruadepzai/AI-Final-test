@@ -1,0 +1,218 @@
+tên_món,nguyên_liệu,grams,ghi_chú
+Phở,Thịt bò,100,Thịt bò tái/chín
+Phở,Bánh phở khô,80,Bánh phở khô (quy đổi ra chín ~200g)
+Phở,Nước dùng bò,350,Nước dùng xương bò
+Phở,Hành tây,20,Hành tây thái mỏng
+Phở,Gừng,10,Gừng nướng cho vào nước dùng
+Phở,Hành lá,10,Hành lá thái nhỏ
+Phở,Rau mùi,5,Ngò rí làm đẹp
+Phở,Giá đỗ,30,Giá đỗ tươi
+Phở,Ớt,5,Ớt tươi tùy chọn
+Phở,Tiêu đen,1,Tiêu xay
+Phở,Chanh,20,Chanh vắt
+Bánh mì,Bánh mì baguette,150,Vỏ bánh mì baguette
+Bánh mì,Thịt ba chỉ,60,Thịt xá xíu / heo quay thái mỏng
+Bánh mì,Pâté lợn,25,Pâté gan phết bên trong
+Bánh mì,Chả lụa,20,Chả lụa thái lát
+Bánh mì,Cà rốt,30,Cà rốt đồ chua
+Bánh mì,Dưa chuột,40,Dưa leo tươi
+Bánh mì,Rau mùi,10,Ngò rí
+Bánh mì,Ớt,5,Ớt tươi
+Bánh mì,Nước mắm,5,Nước mắm rưới nhẹ
+Bún bò Huế,Thịt bò,80,Bắp bò thái lát
+Bún bò Huế,Thịt ba chỉ,50,Giò heo / chân giò
+Bún bò Huế,Bún khô,80,Bún sợi to (khô → chín ~200g)
+Bún bò Huế,Nước dùng bò,300,Nước dùng mắm ruốc
+Bún bò Huế,Mắm tôm,15,Mắm ruốc Huế cho vào nước dùng
+Bún bò Huế,Tương ớt,10,Sa tế / ớt bột
+Bún bò Huế,Sả,15,Sả đập dập
+Bún bò Huế,Hành khô,20,Hành khô phi vàng
+Bún bò Huế,Rau mùi,5,Ngò rí làm đẹp
+Bún bò Huế,Chanh,30,Chanh vắt
+Gỏi cuốn,Bánh tráng,30,Bánh tráng dẻo (3 cuốn ≈ 30g)
+Gỏi cuốn,Tôm,60,Tôm luộc bóc vỏ
+Gỏi cuốn,Thịt ba chỉ,40,Thịt ba chỉ luộc thái lát
+Gỏi cuốn,Bún khô,30,Bún tươi
+Gỏi cuốn,Xà lách,20,Xà lách
+Gỏi cuốn,Rau muống,15,Rau muống chần
+Gỏi cuốn,Rau thơm,10,Rau húng lủi
+Gỏi cuốn,Rau mùi,5,Rau mùi
+Gỏi cuốn,Đậu phộng,15,Đậu phộng giã nhỏ cho nước chấm
+Gỏi cuốn,Mắm tôm,10,Mắm nêm / tương đen pha chấm
+Bánh xèo,Bột gạo,80,Bột gạo pha bột bánh xèo
+Bánh xèo,Nước cốt dừa,50,Nước cốt dừa vào bột
+Bánh xèo,Nghệ,2,Bột nghệ tạo màu vàng
+Bánh xèo,Tôm,60,Tôm tươi
+Bánh xèo,Thịt ba chỉ,40,Thịt ba chỉ thái lát
+Bánh xèo,Giá đỗ,50,Giá đỗ tươi
+Bánh xèo,Hành tây,30,Hành tây thái mỏng
+Bánh xèo,Dầu ăn,20,Dầu ăn chiên bánh
+Bánh xèo,Xà lách,30,Xà lách cuốn khi ăn
+Bánh bèo,Bột gạo,40,Bột gạo tráng bánh
+Bánh bèo,Nước dùng gà,80,Nước dùng mặn nhạt
+Bánh bèo,Tôm chấy,25,Tôm chấy giã nhỏ
+Bánh bèo,Mỡ hành,10,Mỡ hành phi giòn
+Bánh bèo,Thịt ba chỉ,20,Thịt ba chỉ luộc
+Bánh bèo,Nước mắm,10,Nước mắm pha chua ngọt
+Bánh bèo,Rau mùi,5,Rau mùi xắt nhỏ
+Bánh bèo,Ớt,3,Ớt tươi xắt
+Bánh bột lọc,Bột năng,50,Tinh bột sắn
+Bánh bột lọc,Tôm,40,Tôm đất
+Bánh bột lọc,Thịt ba chỉ,30,Thịt ba chỉ xắt
+Bánh bột lọc,Nấm mộc nhĩ,15,Mộc nhĩ ngâm mềm
+Bánh bột lọc,Nước mắm,15,Nước mắm pha ớt
+Bánh bột lọc,Rau mùi,5,Rau mùi xắt
+Bánh căn,Bột gạo,60,Bột gạo tráng bánh
+Bánh căn,Trứng cút,3,Trứng cút luộc (tùy)
+Bánh căn,Tôm,30,Tôm sống xắt
+Bánh căn,Mực,20,Mực xắt nhỏ
+Bánh căn,Mỡ hành,8,Mỡ hành phi
+Bánh căn,Nước mắm,10,Nước mắm nêm
+Bánh căn,Rau mùi,3,Rau mùi xắt
+Bánh căn,Ớt,2,Ớt tươi
+Bánh canh,Bánh canh khô,150,Bánh canh (khô/tươi)
+Bánh canh,Xương heo,80,Xương heo để nước dùng
+Bánh canh,Giò heo,50,Giò heo luộc
+Bánh canh,Cua cà,30,Cua cà vàng
+Bánh canh,Hành lá,15,Hành lá xắt
+Bánh canh,Ngò rí,10,Ngò rí xắt
+Bánh canh,Tiêu đen,2,Tiêu xay
+Bánh chưng,Gạo nếp,300,Gạo nếp không rửa
+Bánh chưng,Đậu xanh,150,Đậu xanh ngâm
+Bánh chưng,Thịt ba chỉ,150,Thịt ba chỉ nấu chín
+Bánh chưng,Tiêu đen,2,Tiêu xay
+Bánh cuốn,Bột gạo,50,Bột gạo tráng bánh
+Bánh cuốn,Thịt lợn,40,Thịt lợn băm nấu chín
+Bánh cuốn,Nấm mộc nhĩ,15,Mộc nhĩ ngâm
+Bánh cuốn,Hành tây,10,Hành tây phi
+Bánh cuốn,Chả lụa,15,Chả lụa thái
+Bánh cuốn,Nước mắm,10,Nước mắm pha nhạt
+Bánh cuốn,Rau mùi,5,Rau mùi xắt
+Bánh đúc,Bột gạo,100,Bột gạo tẻ
+Bánh đúc,Đậu phộng,30,Đậu phộng chiên
+Bánh đúc,Nước cốt dừa,50,Nước cốt dừa pha vôi
+Bánh đúc,Thịt lợn,30,Thịt lợn băm nấu
+Bánh đúc,Nấm mộc nhĩ,10,Mộc nhĩ ngâm
+Bánh đúc,Nước mắm,10,Nước mắm ngọt
+Bánh giò,Bột tẻ,60,Bột mịn
+Bánh giò,Nước dùng xương,100,Nước hầm xương
+Bánh giò,Thịt lợn,40,Thịt lợn băm
+Bánh giò,Nấm mộc nhĩ,15,Mộc nhĩ ngâm
+Bánh giò,Hành tây,8,Hành tây phi
+Bánh giò,Trứng cút,2,Trứng cút
+Bánh khọt,Bột gạo,40,Bột gạo
+Bánh khọt,Bột nghệ,2,Bột nghệ
+Bánh khọt,Tôm,40,Tôm tươi
+Bánh khọt,Mỡ hành,5,Mỡ hành phi
+Bánh khọt,Bột tôm,5,Bột tôm khô
+Bánh khọt,Rau sống,20,Rau sống làm đẹp
+Bánh khọt,Nước mắm,10,Nước mắm pha ớt
+Bánh khọt,Chanh,5,Chanh vắt
+Bánh khọt,Ớt,2,Ớt tươi
+Bánh pía,Bột mì,100,Bột mì
+Bánh pía,Đậu xanh,80,Đậu xanh sên
+Bánh pía,Sầu riêng,60,Sầu riêng (tuỳ chọn)
+Bánh pía,Lòng đỏ trứng,20,Lòng đỏ trứng muối
+Bánh pía,Mỡ heo,30,Mỡ lợn
+Bánh tét,Gạo nếp,250,Gạo nếp
+Bánh tét,Đậu xanh,120,Đậu xanh ngâm
+Bánh tét,Thịt ba chỉ,100,Thịt ba chỉ nấu chín
+Bánh tét,Nước cốt dừa,80,Nước cốt dừa
+Bánh tét,Hành lá,5,Hành lá xắt (nếu có)
+Bánh tráng nướng,Bánh tráng,30,Bánh tráng
+Bánh tráng nướng,Trứng cút,3,Trứng cút
+Bánh tráng nướng,Tép khô,10,Tép khô
+Bánh tráng nướng,Mỡ hành,5,Mỡ hành phi
+Bánh tráng nướng,Xúc xích,20,Xúc xích thái
+Bánh tráng nướng,Phô mai,10,Phô mai ghiền
+Bánh tráng nướng,Tương ớt,5,Tương ớt
+Cá kho tộ,Cá lóc,300,Cá lóc/cá hú
+Cá kho tộ,Nước mắm,30,Nước mắm
+Cá kho tộ,Nước màu,20,Nước màu
+Cá kho tộ,Đường,10,Đường trắng
+Cá kho tộ,Tiêu đen,2,Tiêu xay
+Cá kho tộ,Tỏi,20,Tỏi xắt
+Cá kho tộ,Ớt sừng,5,Ớt sừng
+Canh chua,Cá lóc,200,Cá lóc/tôm
+Canh chua,Giá đỗ,50,Giá đỗ
+Canh chua,Dọc mùng,30,Bạc hà/dọc mùng
+Canh chua,Dứa,40,Thơm/dứa
+Canh chua,Cà chua,60,Cà chua
+Canh chua,Me,20,Nước cốt me
+Cao lầu,Bánh cao lầu,150,Sợi cao lầu
+Cao lầu,Thịt xá xíu,40,Thịt xá xíu
+Cao lầu,Tóp mỡ,30,Tóp mỡ chiên
+Cao lầu,Giá chần,30,Giá chần
+Cao lầu,Rau đắng,20,Rau đắng
+Cao lầu,Nước tương xíu,15,Nước tương xíu
+Cháo lòng,Gạo tẻ,100,Gạo tẻ
+Cháo lòng,Dồi heo,50,Dồi heo luộc
+Cháo lòng,Gan heo,30,Gan heo
+Cháo lòng,Tim heo,20,Tim heo
+Cháo lòng,Dạ dày,30,Dạ dày heo
+Cháo lòng,Dồi trường,20,Dồi trường
+Cháo lòng,Hành lá,10,Hành lá xắt
+Cháo lòng,Rau mùi,5,Rau mùi xắt
+Cháo lòng,Tiêu đen,2,Tiêu xay
+Cơm tấm,Gạo tấm,150,Gạo tấm
+Cơm tấm,Sườn heo,80,Sườn heo nướng
+Cơm tấm,Bì heo,30,Bì heo
+Cơm tấm,Chả trứng,25,Chả trứng hấp
+Cơm tấm,Trứng gà,1,Trứng ốp la
+Cơm tấm,Mỡ hành,10,Mỡ hành phi
+Hủ tiếu,Bánh hủ tiếu,80,Sợi hủ tiếu
+Hủ tiếu,Xương ống,40,Xương ống heo
+Hủ tiếu,Tôm,30,Tôm
+Hủ tiếu,Gan heo,20,Gan heo
+Hủ tiếu,Thịt lợn,20,Thịt lợn băm
+Hủ tiếu,Trứng cút,2,Trứng cút
+Hủ tiếu,Tỏi,5,Tỏi phi
+Hủ tiếu,Nước dùng lợn,300,Nước dùng
+Hủ tiếu,Rau mùi,5,Rau mùi xắt
+Mì Quảng,Mì Quảng,80,Sợi mì Quảng
+Mì Quảng,Thịt gà,60,Thịt gà/heo
+Mì Quảng,Tôm,40,Tôm
+Mì Quảng,Trứng cút,3,Trứng cút
+Mì Quảng,Bánh tráng,20,Bánh tráng nướng
+Mì Quảng,Đậu phộng,20,Đậu phộng
+Mì Quảng,Rau mầm,30,Rau mầm xanh
+Mì Quảng,Nước mắm,15,Nước mắm pha ớt
+Mì Quảng,Hành tây,10,Hành tây phi
+Mì Quảng,Rau mùi,5,Rau mùi xắt
+Nem chua,Thịt nạc,150,Thịt nạc đùi heo
+Nem chua,Bì heo,50,Bì heo
+Nem chua,Tỏi,30,Tỏi xắt lát
+Nem chua,Ớt,20,Ớt xắt
+Nem chua,Tiêu sọ,5,Tiêu sọ
+Xôi xéo,Gạo nếp,200,Gạo nếp cái hoa vàng
+Xôi xéo,Bột nghệ,3,Bột nghệ
+Xôi xéo,Đậu xanh,50,Đậu xanh đồ nhuyễn
+Xôi xéo,Mỡ,20,Mỡ nước
+Xôi xéo,Hành tím,15,Hành tím phi giòn
+Bún đậu mắm tôm,Bún lá,100,Bún tươi
+Bún đậu mắm tôm,Tàu hủ,80,Đậu hũ chiên giòn
+Bún đậu mắm tôm,Thịt ba chỉ,60,Thịt ba chỉ luộc
+Bún đậu mắm tôm,Chả cốm,30,Chả cốm
+Bún đậu mắm tôm,Mắm tôm,30,Mắm tôm pha
+Bún đậu mắm tôm,Chanh,20,Chanh vắt
+Bún đậu mắm tôm,Tía tô,20,Tía tô
+Bún mắm,Bún tươi,120,Bún tươi
+Bún mắm,Mắm cá,40,Mắm cá sặc/cá linh
+Bún mắm,Heo quay,50,Heo quay
+Bún mắm,Mực,30,Mực
+Bún mắm,Tôm,40,Tôm
+Bún mắm,Cá lóc,30,Cá lóc
+Bún mắm,Cà tím,20,Cà tím
+Bún riêu,Bún tươi,120,Bún tươi
+Bún riêu,Gạch cua,40,Gạch cua đồng
+Bún riêu,Đậu hũ,50,Đậu hũ chiên
+Bún riêu,Huyết heo,30,Huyết heo
+Bún riêu,Cà chua,40,Cà chua
+Bún riêu,Mắm tôm,15,Mắm tôm
+Bún riêu,Rau sống,30,Rau sống làm đẹp
+Bún thịt nướng,Bún tươi,120,Bún tươi
+Bún thịt nướng,Thịt heo,80,Thịt heo nướng sả
+Bún thịt nướng,Chả giò,30,Chả giò chiên
+Bún thịt nướng,Mỡ hành,10,Mỡ hành phi
+Bún thịt nướng,Đậu phộng,15,Đậu phộng
+Bún thịt nướng,Đồ chua,40,Đồ chua

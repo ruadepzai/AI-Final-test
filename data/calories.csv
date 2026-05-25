@@ -1,0 +1,31 @@
+class_name,food_name_vi,kcal_per_100g,protein_g,carb_g,fat_g,source
+Banh beo,Bánh bèo,90,3.5,14.2,2.1,USDA
+Banh bot loc,Bánh bột lọc,120,4.8,16.5,3.2,Nutritionix
+Banh can,Bánh căn,145,5.2,18.9,4.5,USDA
+Banh canh,Bánh canh,165,6.1,22.3,5.8,Nutritionix
+Banh chung,Bánh chưng,210,6.5,28.4,7.2,USDA
+Banh cuon,Bánh cuốn,130,5.1,15.8,4.1,Nutritionix
+Banh duc,Bánh đúc,105,3.8,13.5,3.2,USDA
+Banh gio,Bánh giò,145,5.5,17.2,5.3,Nutritionix
+Banh khot,Bánh khọt,155,5.8,18.9,5.9,USDA
+Banh mi,Bánh mì,290,9.5,42.1,8.2,Nutritionix
+Banh pia,Bánh pía,280,6.2,35.4,12.1,USDA
+Banh tet,Bánh tét,195,5.8,26.3,7.1,Nutritionix
+Banh trang nuong,Bánh tráng nướng,165,4.2,21.5,6.8,USDA
+Banh xeo,Bánh xèo,175,6.3,19.8,7.2,Nutritionix
+Bun bo Hue,Bún bò Huế,185,12.4,18.5,6.2,USDA
+Bun dau mam tom,Bún đậu mắm tôm,220,9.8,16.2,11.3,Nutritionix
+Bun mam,Bún mắm,165,9.2,15.8,6.1,USDA
+Bun rieu,Bún riêu,145,8.5,14.2,4.8,Nutritionix
+Bun thit nuong,Bún thịt nướng,195,11.2,18.4,7.5,USDA
+Ca kho to,Cá kho tộ,185,22.3,0.8,9.5,Nutritionix
+Canh chua,Canh chua,85,7.8,5.2,3.1,USDA
+Cao lau,Cao lầu,205,8.4,28.5,6.8,Nutritionix
+Chao long,Cháo lòng,125,9.5,8.3,4.2,USDA
+Com tam,Cơm tấm,155,4.8,28.2,2.3,Nutritionix
+Goi cuon,Gỏi cuốn,145,5.8,18.2,5.1,USDA
+Hu tieu,Hủ tiếu,175,8.2,22.4,5.3,Nutritionix
+Mi quang,Mì Quảng,215,8.9,28.5,6.2,USDA
+Nem chua,Nem chua,320,18.5,8.2,24.1,Nutritionix
+Pho,Phở,135,8.4,16.8,3.2,USDA
+Xoi xeo,Xôi xéo,180,5.2,32.1,3.5,Nutritionix
