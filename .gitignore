@@ -1,0 +1,4 @@
+data/raw/Images/*
+!data/raw/Images/*/.gitkeep
+.ipynb_checkpoints/
+__pycache__/
