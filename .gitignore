@@ -2,3 +2,5 @@ data/raw/Images/*
 !data/raw/Images/*/.gitkeep
 .ipynb_checkpoints/
 __pycache__/
+checkpoints/*.pth
+gradcam_*.png

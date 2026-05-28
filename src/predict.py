@@ -105,7 +105,7 @@ class FoodPredictor:
             self.device = torch.device(device)
 
         # Load checkpoint
-        print(f"⏳ Loading model tu {checkpoint_path}...")
+        print(f" Loading model tu {checkpoint_path}...")
         checkpoint = torch.load(checkpoint_path, map_location=self.device, weights_only=False)
 
         # Lay config tu checkpoint
@@ -137,15 +137,15 @@ class FoodPredictor:
         csv_path = Path(calories_csv) if calories_csv else CALORIES_CSV
         try:
             self.calories_data = load_calories(csv_path)
-            print(f"✓ Loaded calories data: {len(self.calories_data)} classes")
+            print(f"[OK] Loaded calories data: {len(self.calories_data)} classes")
         except Exception as e:
-            print(f"⚠ Khong load duoc calories: {e}")
+            print(f"[WARN] Khong load duoc calories: {e}")
             self.calories_data = {}
 
         # Info
         best_acc = checkpoint.get("best_val_acc", "N/A")
         epoch = checkpoint.get("epoch", "N/A")
-        print(f"✓ Model loaded: {model_name}, {num_classes} classes")
+        print(f"[OK] Model loaded: {model_name}, {num_classes} classes")
         print(f"  Checkpoint epoch: {epoch}, best val acc: {best_acc}")
         print(f"  Device: {self.device}")
 
@@ -432,20 +432,20 @@ def quick_predict(
 def print_prediction(result: Dict) -> None:
     """In ket qua du doan dep."""
     print(f"\n{'='*60}")
-    print(f"🍲 KET QUA DU DOAN")
+    print(f" KET QUA DU DOAN")
     print(f"{'='*60}")
     print(f"  Mon an:     {result['display_name']}")
     print(f"  Do tin cay: {result['confidence']:.1%}")
     print(f"  Class ID:   {result['predicted_class']}")
 
-    print(f"\n📊 TOP PREDICTIONS:")
+    print(f"\n TOP PREDICTIONS:")
     for i, (cls, display, prob) in enumerate(result["top_k"], 1):
-        bar = "█" * int(prob * 30)
+        bar = "" * int(prob * 30)
         print(f"  {i}. {display:20} {prob:.1%} {bar}")
 
     if result["nutrition"]["kcal_per_100g"] > 0:
         n = result["nutrition"]
-        print(f"\n🔥 DINH DUONG ({n['serving_grams']:.0f}g):")
+        print(f"\n DINH DUONG ({n['serving_grams']:.0f}g):")
         print(f"  Calories: {n['serving_kcal']:.0f} kcal")
         print(f"  Protein:  {n['protein_g']:.1f}g")
         print(f"  Carb:     {n['carb_g']:.1f}g")
@@ -453,7 +453,7 @@ def print_prediction(result: Dict) -> None:
         print(f"  Nguon:    {n['source']}")
 
     if result["story"]:
-        print(f"\n📖 CAU CHUYEN:")
+        print(f"\n CAU CHUYEN:")
         print(f"  {result['story'][:120]}...")
 
     print(f"{'='*60}\n")
@@ -503,7 +503,7 @@ def main():
             save_path=save_path,
             top_k=args.top_k,
         )
-        print(f"✓ Grad-CAM saved: {save_path}")
+        print(f"[OK] Grad-CAM saved: {save_path}")
     else:
         result = predictor.predict(
             image=args.image,

@@ -116,9 +116,9 @@ def create_model(
     if freeze_backbone:
         _freeze_backbone(model, model_name)
 
-    print(f"✓ Model '{model_name}' da tao thanh cong (num_classes={num_classes})")
+    print(f"[OK] Model '{model_name}' da tao thanh cong (num_classes={num_classes})")
     if freeze_backbone:
-        print(f"  → Backbone FROZEN - chi train classifier head")
+        print(f"   Backbone FROZEN - chi train classifier head")
 
     return model
 
@@ -176,7 +176,7 @@ def unfreeze_backbone(
         # Mo tat ca
         for param in backbone.parameters():
             param.requires_grad = True
-        print(f"✓ Unfreeze ALL {total_layers} backbone layers")
+        print(f"[OK] Unfreeze ALL {total_layers} backbone layers")
     else:
         # Mo N layer cuoi
         num_layers = min(num_layers, total_layers)
@@ -186,7 +186,7 @@ def unfreeze_backbone(
             for param in layer.parameters():
                 param.requires_grad = True
 
-        print(f"✓ Unfreeze {num_layers}/{total_layers} backbone layers (tu cuoi)")
+        print(f"[OK] Unfreeze {num_layers}/{total_layers} backbone layers (tu cuoi)")
 
 
 # ============================================================================
@@ -425,7 +425,7 @@ class GradCAM:
             save_path = Path(save_path)
             save_path.parent.mkdir(parents=True, exist_ok=True)
             plt.savefig(save_path, dpi=150, bbox_inches="tight")
-            print(f"✓ Grad-CAM saved: {save_path}")
+            print(f"[OK] Grad-CAM saved: {save_path}")
 
         if show:
             plt.show()
@@ -438,7 +438,7 @@ class GradCAM:
         """Go bo hooks khi khong can dung nua."""
         self._forward_hook.remove()
         self._backward_hook.remove()
-        print("✓ Grad-CAM hooks removed")
+        print("[OK] Grad-CAM hooks removed")
 
 
 # ============================================================================
@@ -460,9 +460,9 @@ if __name__ == "__main__":
         dummy = torch.randn(2, 3, 224, 224)
         out = model_eff(dummy)
         assert out.shape == (2, 30), f"Shape sai: {out.shape}"
-        print(f"   ✓ Output shape: {out.shape}")
+        print(f"   [OK] Output shape: {out.shape}")
     except Exception as e:
-        print(f"   ✗ Loi: {e}")
+        print(f"    Loi: {e}")
 
     # Test 2: Tao MobileNetV3
     print("\n2. Tao MobileNetV3-Small (freeze backbone)...")
@@ -472,9 +472,9 @@ if __name__ == "__main__":
 
         out = model_mob(dummy)
         assert out.shape == (2, 30), f"Shape sai: {out.shape}"
-        print(f"   ✓ Output shape: {out.shape}")
+        print(f"   [OK] Output shape: {out.shape}")
     except Exception as e:
-        print(f"   ✗ Loi: {e}")
+        print(f"    Loi: {e}")
 
     # Test 3: Unfreeze backbone
     print("\n3. Unfreeze 3 layers cuoi cua EfficientNetB0...")
@@ -482,9 +482,9 @@ if __name__ == "__main__":
         unfreeze_backbone(model_eff, "efficientnet_b0", num_layers=3)
         info_after = get_model_info(model_eff)
         assert info_after["trainable"] > info_eff["trainable"]
-        print(f"   ✓ Trainable tang: {info_eff['trainable']:,} -> {info_after['trainable']:,}")
+        print(f"   [OK] Trainable tang: {info_eff['trainable']:,} -> {info_after['trainable']:,}")
     except Exception as e:
-        print(f"   ✗ Loi: {e}")
+        print(f"    Loi: {e}")
 
     # Test 4: Grad-CAM
     print("\n4. Test Grad-CAM...")
@@ -497,20 +497,20 @@ if __name__ == "__main__":
         heatmap = gradcam.generate(dummy_input)
         assert heatmap.shape == (224, 224), f"Heatmap shape sai: {heatmap.shape}"
         assert 0 <= heatmap.min() and heatmap.max() <= 1, "Heatmap khong normalize"
-        print(f"   ✓ Heatmap shape: {heatmap.shape}, range: [{heatmap.min():.2f}, {heatmap.max():.2f}]")
+        print(f"   [OK] Heatmap shape: {heatmap.shape}, range: [{heatmap.min():.2f}, {heatmap.max():.2f}]")
 
         gradcam.remove_hooks()
     except Exception as e:
-        print(f"   ✗ Loi: {e}")
+        print(f"    Loi: {e}")
 
     # Test 5: Model khong hop le
     print("\n5. Test model khong hop le...")
     try:
         create_model("resnet50")
-        print("   ✗ Khong raise ValueError!")
+        print("    Khong raise ValueError!")
     except ValueError as e:
-        print(f"   ✓ ValueError: {e}")
+        print(f"   [OK] ValueError: {e}")
 
     print("\n" + "=" * 70)
-    print("✓ TAT CA TEST PASSED!")
+    print("[OK] TAT CA TEST PASSED!")
     print("=" * 70)

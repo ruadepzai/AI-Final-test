@@ -329,7 +329,7 @@ class Trainer:
         start_time = time.time()
 
         print(f"\n{'='*70}")
-        print(f"🚀 BAT DAU TRAINING")
+        print(f"[START] BAT DAU TRAINING")
         print(f"{'='*70}")
         print(f"  Model:          {config.model_name}")
         print(f"  Device:         {self.device}")
@@ -349,7 +349,7 @@ class Trainer:
             # === CHUYEN PHASE ===
             if epoch == config.freeze_epochs:
                 print(f"\n{'='*70}")
-                print(f"🔓 PHASE 2: UNFREEZE BACKBONE (epoch {epoch+1})")
+                print(f"[UNLOCK] PHASE 2: UNFREEZE BACKBONE (epoch {epoch+1})")
                 print(f"{'='*70}")
 
                 # Unfreeze backbone
@@ -403,7 +403,7 @@ class Trainer:
                 self.best_epoch = epoch + 1
                 self.epochs_no_improve = 0
                 self.save_checkpoint(epoch, is_best=True)
-                best_marker = " ⭐ BEST"
+                best_marker = " *BEST* BEST"
             else:
                 self.epochs_no_improve += 1
                 best_marker = ""
@@ -429,14 +429,14 @@ class Trainer:
 
             # === EARLY STOPPING (chi Phase 2) ===
             if epoch >= config.freeze_epochs and self.epochs_no_improve >= config.patience:
-                print(f"\n⚠ Early stopping! Val acc khong cai thien sau {config.patience} epochs.")
+                print(f"\n[WARN] Early stopping! Val acc khong cai thien sau {config.patience} epochs.")
                 print(f"  Best val acc: {self.best_val_acc:.1f}% (epoch {self.best_epoch})")
                 break
 
         # === KET THUC ===
         total_time = time.time() - start_time
         print(f"\n{'='*70}")
-        print(f"✓ TRAINING HOAN TAT!")
+        print(f"[OK] TRAINING HOAN TAT!")
         print(f"{'='*70}")
         print(f"  Tong thoi gian:  {total_time/60:.1f} phut")
         print(f"  Best val acc:    {self.best_val_acc:.1f}% (epoch {self.best_epoch})")
@@ -501,7 +501,7 @@ class Trainer:
         self.best_val_acc = checkpoint.get("best_val_acc", 0.0)
 
         start_epoch = checkpoint["epoch"]
-        print(f"✓ Loaded checkpoint: epoch {start_epoch}, best_val_acc={self.best_val_acc:.1f}%")
+        print(f"[OK] Loaded checkpoint: epoch {start_epoch}, best_val_acc={self.best_val_acc:.1f}%")
 
         return start_epoch
 
@@ -551,7 +551,7 @@ class Trainer:
             for ax in axes:
                 ax.axvline(x=freeze_epochs + 0.5, color="gray", linestyle=":", alpha=0.7)
             axes[0].text(freeze_epochs + 0.7, axes[0].get_ylim()[1] * 0.9,
-                        "← Phase 1 | Phase 2 →", fontsize=8, color="gray")
+                        " Phase 1 | Phase 2 ", fontsize=8, color="gray")
 
         plt.suptitle(
             f"Training Curves - {self.config.model_name} "
@@ -563,14 +563,14 @@ class Trainer:
         save_path = FIGURES_DIR / f"training_curves_{self.config.model_name}.png"
         plt.savefig(save_path, dpi=150, bbox_inches="tight")
         plt.close()
-        print(f"✓ Training curves saved: {save_path}")
+        print(f"[OK] Training curves saved: {save_path}")
 
     def _save_history(self) -> None:
         """Luu training history ra file JSON."""
         history_path = Path(self.config.checkpoint_dir) / "training_history.json"
         with open(history_path, "w", encoding="utf-8") as f:
             json.dump(self.history, f, indent=2)
-        print(f"✓ Training history saved: {history_path}")
+        print(f"[OK] Training history saved: {history_path}")
 
 
 # ============================================================================
@@ -585,7 +585,7 @@ def setup_seed(seed: int = 42) -> None:
     np.random.seed(seed)
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
-    print(f"✓ Random seed: {seed}")
+    print(f"[OK] Random seed: {seed}")
 
 
 def get_device() -> torch.device:
@@ -594,10 +594,10 @@ def get_device() -> torch.device:
         device = torch.device("cuda")
         gpu_name = torch.cuda.get_device_name(0)
         gpu_mem = torch.cuda.get_device_properties(0).total_memory / 1e9
-        print(f"✓ Device: {device} ({gpu_name}, {gpu_mem:.1f} GB)")
+        print(f"[OK] Device: {device} ({gpu_name}, {gpu_mem:.1f} GB)")
     else:
         device = torch.device("cpu")
-        print(f"⚠ Device: {device} (khong co GPU, training se cham)")
+        print(f"[WARN] Device: {device} (khong co GPU, training se cham)")
     return device
 
 
@@ -660,26 +660,26 @@ def main():
         config.num_epochs = 1
         config.batch_size = 4
         config.freeze_epochs = 0
-        print("⚠ DRY RUN MODE: 1 epoch, batch_size=4")
+        print("[WARN] DRY RUN MODE: 1 epoch, batch_size=4")
 
     # === SETUP ===
     setup_seed(config.seed)
     device = get_device()
 
     # === DATA ===
-    print(f"\n⏳ Loading data...")
+    print(f"\n Loading data...")
     dataloaders, class_weights = get_dataloaders(
         batch_size=config.batch_size,
         num_workers=config.num_workers,
         use_weighted_sampler=config.use_weighted_sampler,
         check_stratified=True,
     )
-    print(f"✓ Data loaded:")
+    print(f"[OK] Data loaded:")
     for split, loader in dataloaders.items():
         print(f"  {split:6}: {len(loader.dataset):,} samples, {len(loader)} batches")
 
     # === MODEL ===
-    print(f"\n⏳ Creating model...")
+    print(f"\n Creating model...")
     model = create_model(
         model_name=config.model_name,
         num_classes=config.num_classes,
@@ -691,10 +691,10 @@ def main():
     # === LOSS FUNCTION ===
     if class_weights is not None:
         criterion = nn.CrossEntropyLoss(weight=class_weights.to(device))
-        print(f"✓ Loss: CrossEntropyLoss voi class weights (xu ly imbalance)")
+        print(f"[OK] Loss: CrossEntropyLoss voi class weights (xu ly imbalance)")
     else:
         criterion = nn.CrossEntropyLoss()
-        print(f"✓ Loss: CrossEntropyLoss (khong co class weights)")
+        print(f"[OK] Loss: CrossEntropyLoss (khong co class weights)")
 
     # === TRAINER ===
     trainer = Trainer(
@@ -712,7 +712,7 @@ def main():
     # === TRAIN ===
     history = trainer.fit()
 
-    print(f"\n✓ Done! Best model: {config.checkpoint_dir}/best_model.pth")
+    print(f"\n[OK] Done! Best model: {config.checkpoint_dir}/best_model.pth")
 
 
 if __name__ == "__main__":
