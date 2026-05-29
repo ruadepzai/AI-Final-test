@@ -2,7 +2,13 @@
 Recipes Database Management
 Quản lý công thức (recipe) các món ăn Việt Nam
 """
+import sys
+from pathlib import Path
 
+# Tự động tìm đường dẫn thư mục gốc (AI-Final-test) và nạp vào hệ thống
+workspace_root = str(Path(__file__).parent.parent)
+if workspace_root not in sys.path:
+    sys.path.insert(0, workspace_root)
 from pathlib import Path
 import pandas as pd
 from typing import Dict, Optional, List
@@ -39,17 +45,19 @@ class RecipesDB:
         return df
     
     def _create_dict(self) -> Dict:
-        """Tạo dictionary công thức theo dish_name"""
+        """Tạo dictionary công thức theo tên_món"""
         recipes_dict = {}
-        for dish_name in self.df['dish_name'].unique():
-            dish_recipes = self.df[self.df['dish_name'] == dish_name]
+        # CHỈ ĐỔI TÊN CỘT: 'dish_name' -> 'tên_món'
+        for dish_name in self.df['tên_món'].unique():
+            dish_recipes = self.df[self.df['tên_món'] == dish_name]
             
             ingredients_list = []
             for _, row in dish_recipes.iterrows():
+                # CHỈ ĐỔI TÊN CỘT Ở VẾ PHẢI: Khớp với header thực tế của file CSV
                 ingredients_list.append({
-                    'ingredient_name': row['ingredient_name'],
+                    'ingredient_name': row['nguyên_liệu'],
                     'grams': float(row['grams']),
-                    'notes': row['notes']
+                    'notes': row['ghi_chú'] if pd.notna(row['ghi_chú']) else '-'
                 })
             
             recipes_dict[dish_name] = ingredients_list
@@ -81,7 +89,8 @@ class RecipesDB:
         if recipe is None:
             return None
         
-        return self.df[self.df['dish_name'] == dish_name].copy()
+        # CHỈ ĐỔI TÊN CỘT: 'dish_name' -> 'tên_món'
+        return self.df[self.df['tên_món'] == dish_name].copy()
     
     def print_recipe(self, dish_name: str):
         """In công thức dễ đọc"""
@@ -135,12 +144,12 @@ def get_recipes_db() -> RecipesDB:
 
 
 if __name__ == "__main__":
-    # Test
+    # Test nội bộ bằng tên món tiếng Việt có dấu khớp với file CSV mới
     db = RecipesDB()
     
     # Test 1: List all dishes
     db.print_all_dishes()
     
     # Test 2: Print specific recipe
-    db.print_recipe("Pho")
-    db.print_recipe("Banh mi")
+    db.print_recipe("Phở")
+    db.print_recipe("Bánh mì")

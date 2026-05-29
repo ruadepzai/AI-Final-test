@@ -1,0 +1,157 @@
+tên_món,nguyên_liệu,grams,ghi_chú
+Phở,Thịt bò,100,Thịt bò tái/chín
+Phở,Bánh phở,200,Bánh phở tươi (đã quy đổi từ bánh khô)
+Phở,Sườn heo bỏ xương,150,Quy đổi từ xương ống hầm nước dùng
+Phở,Gừng tươi,10,Gừng nướng thơm
+Phở,Nước mắm,15,Gia vị nêm nước dùng
+Phở,Rau sống,30,Hành lá và giá đỗ ăn kèm
+Phở,Tương ớt,5,Ớt tương ăn kèm
+Bánh mì,Bánh mì,120,Vỏ bánh mì chuẩn
+Bánh mì,Thịt heo ba chỉ,60,Thịt xá xíu hoặc heo quay thái mỏng
+Bánh mì,Pa-tê,25,Pâté gan phết bên trong
+Bánh mì,Chả lụa,20,Chả lụa thái lát
+Bánh mì,Rau sống,30,Dưa leo và đồ chua ăn kèm
+Bánh mì,Nước mắm,5,Nước mắm rưới nhẹ
+Bún bò Huế,Thịt bò,80,Bắp bò thái lát
+Bún bò Huế,Giòheo bỏ xương,50,Giò heo khoanh tròn
+Bún bò Huế,Bún,200,Sợi bún tươi (đã quy đổi từ bún khô)
+Bún bò Huế,Mắm tôm đặc,15,Mắm ruốc Huế nêm nước dùng
+Bún bò Huế,Tương ớt,10,Sa tế sả ớt
+Bún bò Huế,Gừng tươi,10,Gừng và sả đập dập
+Gỏi cuốn,Bánh tráng mỏng,30,Bánh tráng dẻo cuốn
+Gỏi cuốn,Tôm đồng,60,Tôm luộc bóc vỏ
+Gỏi cuốn,Thịt heo ba chỉ,40,Thịt ba chỉ luộc thái lát
+Gỏi cuốn,Bún,50,Bún tươi cuốn bên trong
+Gỏi cuốn,Rau sống,40,Xà lách và rau thơm ăn kèm
+Gỏi cuốn,Đậu phộng,15,Đậu phộng giã nhỏ làm nước chấm
+Gỏi cuốn,Mắm tôm đặc,10,Mắm nêm pha chấm
+Bánh xèo,Gạo tẻ,80,Bột gạo pha bột bánh xèo
+Bánh xèo,Cùi dừa già,50,Nước cốt dừa vắt vào bột
+Bánh xèo,Nghệ tươi,2,Nghệ giã lấy nước tạo màu
+Bánh xèo,Tôm đồng,60,Tôm tươi làm nhân
+Bánh xèo,Thịt heo ba chỉ,40,Thịt ba chỉ làm nhân
+Bánh xèo,Rau sống,80,Giá đỗ và rau xà lách cuốn kèm
+Bánh xèo,Nước mắm,15,Nước mắm tỏi ớt chấm kèm
+Bánh bèo,Gạo tẻ,40,Bột gạo tráng bánh bèo
+Bánh bèo,Tôm khô,25,Tôm chấy giã nhỏ rắc lên bánh
+Bánh bèo,Thịt heo ba chỉ,20,Thịt mỡ hành phi giòn
+Bánh bèo,Nước mắm,10,Nước mắm chua ngọt rưới lên
+Bánh bèo,Rau sống,5,Hành lá thái nhỏ làm mỡ hành
+Bánh bột lọc,Bột sắn dây,50,Quy đổi bột năng sang bột sắn
+Bánh bột lọc,Tôm đồng,40,Tôm đất rim làm nhân
+Bánh bột lọc,Thịt heo ba chỉ,30,Thịt ba chỉ xắt nhỏ rim kèm
+Bánh bột lọc,Nước mắm,15,Nước mắm ớt chấm bánh
+Bánh bột lọc,Rau sống,5,Hành lá làm mỡ hành
+Bánh căn,Gạo tẻ,60,Bột gạo đổ bánh căn
+Bánh căn,Trứng gà,30,Quy đổi trứng cút sang trứng gà
+Bánh căn,Tôm đồng,30,Nhân tôm băm
+Bánh căn,Mực tươi,20,Nhân mực xắt nhỏ
+Bánh căn,Nước mắm,10,Nước mắm chấm bánh
+Bánh canh,Bún,200,Quy đổi sợi bánh canh sang bún sợi to
+Bánh canh,Sườn heo bỏ xương,80,Xương hầm nước dùng
+Bánh canh,Giòheo bỏ xương,50,Giò heo ăn kèm
+Bánh canh,Cua biển,30,Thịt cua bể xé nhỏ
+Bánh canh,Rau sống,15,Hành ngò xắt nhỏ
+Bánh chưng,Gạo nếp cái,300,Gạo nếp cái hoa vàng
+Bánh chưng,Đậu xanh,150,Đậu xanh cà vỏ làm nhân
+Bánh chưng,Thịt heo ba chỉ,150,Thịt ba chỉ ướp tiêu
+Bánh cuốn,Gạo tẻ,50,Bột gạo tráng bánh cuốn
+Bánh cuốn,Thịt heo nạc,40,Thịt lợn băm xào nhân
+Bánh cuốn,Chả lụa,15,Chả lụa ăn kèm
+Bánh cuốn,Nước mắm,10,Nước mắm cà cuống pha nhạt
+Bánh cuốn,Rau sống,15,Hành tây phi và rau thơm
+Bánh đúc,Gạo tẻ,100,Bột gạo tẻ nấu bánh đúc
+Bánh đúc,Đậu phộng,30,Đậu phộng luộc trộn vào bánh
+Bánh đúc,Cùi dừa già,50,Nước cốt dừa tạo độ béo
+Bánh đúc,Thịt heo nạc,30,Thịt băm xào mộc nhĩ làm nhân
+Bánh đúc,Nước mắm,10,Nước mắm tỏi ớt rưới lên
+Bánh giò,Gạo tẻ,60,Bột tẻ làm vỏ bánh
+Bánh giò,Sườn heo bỏ xương,100,Nước hầm xương làm vỏ bánh
+Bánh giò,Thịt heo nạc,40,Thịt lợn băm làm nhân
+Bánh giò,Trứng gà,20,Quy đổi trứng cút sang trứng gà
+Bánh giò,Rau sống,10,Hành phi làm nhân
+Bánh khọt,Gạo tẻ,40,Bột gạo đổ bánh khọt
+Bánh khọt,Tôm đồng,40,Tôm tươi làm nhân
+Bánh khọt,Tôm khô,5,Bột tôm khô rắc lên mặt
+Bánh khọt,Rau sống,30,Rau sống ăn kèm
+Bánh khọt,Nước mắm,10,Nước mắm chua ngọt chấm bánh
+Bánh pía,Bột sắn dây,100,Quy đổi bột mì sang bột sắn dây
+Bánh pía,Đậu xanh,80,Đậu xanh sên nhân
+Bánh pía,Lòng đỏ trứng gà,20,Lòng đỏ trứng muối làm nhân
+Bánh pía,Thịt heo mỡ,30,Mỡ lợn phần nhân và vỏ
+Bánh tét,Gạo nếp cái,250,Gạo nếp gói bánh
+Bánh tét,Đậu xanh,120,Đậu xanh làm nhân
+Bánh tét,Thịt heo ba chỉ,100,Thịt ba chỉ nhân bánh
+Bánh tét,Cùi dừa già,80,Nước cốt dừa xào nếp
+Bánh tráng nướng,Bánh tráng mỏng,30,Vỏ bánh tráng nướng
+Bánh tráng nướng,Trứng gà,50,Trứng gà dàn đều trên bánh
+Bánh tráng nướng,Tép gạo,10,Tép khô rắc mặt
+Bánh tráng nướng,Xúc xích,20,Xúc xích cắt lát
+Bánh tráng nướng,Tương ớt,5,Tương ớt rưới lên mặt
+Cá kho tộ,Cá lóc,300,Cá lóc cắt khúc kho
+Cá kho tộ,Nước mắm,30,Nước mắm kho cá
+Cá kho tộ,Đường cát trắng,10,Đường cát thắng nước màu
+Cá kho tộ,Rau sống,25,Tỏi và ớt sừng kho cùng
+Canh chua,Cá lóc,200,Cá lóc nấu canh
+Canh chua,Rau sống,180,Giá đỗ dọc mùng cà chua dứa me
+Canh chua,Nước mắm,15,Nước mắm nêm canh
+Cao lầu,Bún,150,Quy đổi sợi cao lầu sang bún sợi to
+Cao lầu,Thịt heo nạc,40,Thịt heo nạc làm xá xíu
+Cao lầu,Da heo,30,Quy đổi tóp mỡ sang da heo chiên giòn
+Cao lầu,Rau sống,50,Giá chần và rau đắng ăn kèm
+Cao lầu,Xì dầu,15,Nước tương xíu rưới lên
+Cháo lòng,Gạo tẻ,100,Gạo tẻ nấu cháo
+Cháo lòng,Bao tử heo,50,Quy đổi dồi heo sang bao tử heo
+Cháo lòng,Gan heo,30,Gan heo luộc
+Cháo lòng,Tim heo,20,Tim heo luộc
+Cháo lòng,Rau sống,15,Hành lá ngò rí rắc lên cháo
+Cơm tấm,Gạo tẻ,150,Quy đổi gạo tấm sang gạo tẻ
+Cơm tấm,Sườn heo bỏ xương,80,Sườn cốt lết nướng
+Cơm tấm,Da heo,30,Quy đổi bì heo sang da heo trộn thính
+Cơm tấm,Trứng gà,60,Trứng ốp la và chả trứng
+Cơm tấm,Thịt heo mỡ,10,Mỡ hành phi rưới lên cơm
+Hủ tiếu,Bánh phở,80,Quy đổi sợi hủ tiếu sang bánh phở
+Hủ tiếu,Sườn heo bỏ xương,40,Xương hầm nước dùng hủ tiếu
+Hủ tiếu,Tôm đồng,30,Tôm luộc lột vỏ
+Hủ tiếu,Gan heo,20,Gan heo luộc thái lát
+Hủ tiếu,Thịt heo nạc,20,Thịt lợn băm nhỏ
+Hủ tiếu,Trứng gà,20,Quy đổi trứng cút sang trứng gà
+Hủ tiếu,Rau sống,10,Hành ngò và tỏi phi rắc mặt
+Mì Quảng,Bún,80,Quy đổi sợi mì quảng sang bún sợi to
+Mì Quảng,Thịt gà ta,60,Thịt gà ta ram
+Mì Quảng,Tôm đồng,40,Tôm đồng ram nhân
+Mì Quảng,Bánh tráng mỏng,20,Bánh tráng nướng bẻ nhỏ ăn kèm
+Mì Quảng,Đậu phộng,20,Đậu phộng rang rắc mặt
+Mì Quảng,Rau sống,45,Rau sống ăn kèm mì quảng
+Nem chua,Thịt heo nạc,150,Thịt heo nạc mông xay nhuyễn
+Nem chua,Da heo,50,Quy đổi bì heo sang da heo xắt sợi
+Nem chua,Nem chua,5,Tỏi và ớt sừng xắt lát gài kèm
+Xôi xéo,Gạo nếp cái,200,Gạo nếp cái hoa vàng đồ xôi
+Xôi xéo,Đậu xanh,50,Đậu xanh đồ nhuyễn viên tròn
+Xôi xéo,Thịt heo mỡ,20,Mỡ nước rưới lên xôi
+Xôi xéo,Rau sống,15,Hành tím phi giòn rắc mặt
+Bún đậu mắm tôm,Bún,100,Bún lá cắt miếng
+Bún đậu mắm tôm,Đậu phụ,80,Đậu hũ chiên giòn
+Bún đậu mắm tôm,Thịt heo ba chỉ,60,Thịt chân giò hoặc ba chỉ luộc
+Bún đậu mắm tôm,Chả lụa,30,Quy đổi chả cốm sang chả lụa
+Bún đậu mắm tôm,Mắm tôm đặc,30,Mắm tôm đặc pha đường tắc
+Bún đậu mắm tôm,Rau sống,20,Rau kinh giới và tía tô ăn kèm
+Bún mắm,Bún,120,Bún tươi sợi to
+Bún mắm,Mắm tôm đặc,40,Quy đổi mắm cá sang mắm tôm đặc nấu nước dùng
+Bún mắm,Thịt heo ba chỉ,50,Thịt heo quay ăn kèm
+Bún mắm,Mực tươi,30,Mực tươi luộc cắt khoanh
+Bún mắm,Tôm đồng,40,Tôm đồng luộc bóc vỏ
+Bún mắm,Cá lóc,30,Cá lóc phi lê luộc
+Bún mắm,Rau sống,20,Cà tím và rau ăn kèm
+Bún riêu,Bún,120,Bún tươi sợi nhỏ
+Bún riêu,Cua đồng,40,Cua đồng giã làm riêu cua
+Bún riêu,Đậu phụ,50,Đậu hũ chiên vàng
+Bún riêu,Huyết heo luộc,30,Huyết lợn chần chín
+Bún riêu,Mắm tôm đặc,15,Mắm tôm nêm nếm nước dùng
+Bún riêu,Rau sống,70,Cà chua và rau sống chẻ ăn kèm
+Bún thịt nướng,Bún,120,Bún tươi ăn kèm
+Bún thịt nướng,Thịt heo nạc,80,Thịt nạc vai nướng sả
+Bún thịt nướng,Chả lụa,30,Quy đổi chả giò sang chả lụa
+Bún thịt nướng,Thịt heo mỡ,10,Mỡ hành phi rưới mặt
+Bún thịt nướng,Đậu phộng,15,Đậu phộng rang giã dập
+Bún thịt nướng,Rau sống,80,Rau sống và đồ chua dưa leo ăn kèm
