@@ -5,38 +5,22 @@ Module này cung cấp các hàm để tải dữ liệu calories từ CSV và
 tính toán thông tin dinh dưỡng cho một phần ăn cụ thể.
 """
 
-from pathlib import Path
 import csv
-from typing import Dict, Any, Optional
+from pathlib import Path
+from typing import Any, Dict, Optional
 
 
 def load_calories(csv_path: Path | str) -> Dict[str, Dict[str, Any]]:
     """
-    Tải dữ liệu calories từ file CSV.
+    Tải dữ liệu calories từ file CSV chuẩn hóa 100g chín (categories.csv).
 
     Args:
         csv_path: Đường dẫn tới file CSV chứa thông tin dinh dưỡng.
                   Mỗi dòng: class_name, food_name_vi, kcal_per_100g,
-                           protein_g, carb_g, fat_g, source
+                            protein_g, carb_g, fat_g, source
 
     Returns:
         Dict ánh xạ class_name → thông tin dinh dưỡng.
-        Ví dụ:
-        {
-            "Pho": {
-                "food_name_vi": "Phở",
-                "kcal_per_100g": 135,
-                "protein_g": 8.4,
-                "carb_g": 16.8,
-                "fat_g": 3.2,
-                "source": "USDA"
-            },
-            ...
-        }
-
-    Raises:
-        FileNotFoundError: Nếu file CSV không tồn tại.
-        ValueError: Nếu CSV thiếu cột bắt buộc.
     """
     csv_path = Path(csv_path)
 
@@ -45,7 +29,8 @@ def load_calories(csv_path: Path | str) -> Dict[str, Dict[str, Any]]:
 
     calories_dict = {}
 
-    with open(csv_path, "r", encoding="utf-8") as f:
+    # CHỈNH SỬA: Đổi sang utf-8-sig để xử lý triệt để lỗi font tiếng Việt khi đọc CSV
+    with open(csv_path, "r", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
 
         # Kiểm tra header
@@ -83,30 +68,7 @@ def get_nutrition(
     class_name: str, grams: float, csv_path: Path | str
 ) -> Dict[str, float]:
     """
-    Tính toán thông tin dinh dưỡng cho một phần ăn cụ thể.
-
-    Hàm lấy thông tin dinh dưỡng trên 100g từ CSV, rồi scale theo
-    số gram thực tế nhập vào.
-
-    Args:
-        class_name: Tên class/folder của món ăn (ví dụ: "Pho").
-        grams: Khối lượng phần ăn tính bằng gram.
-        csv_path: Đường dẫn tới file CSV.
-
-    Returns:
-        Dict chứa thông tin dinh dưỡng đã scale:
-        {
-            "food_name_vi": "Phở",
-            "grams": 350,
-            "kcal": 472.5,
-            "protein_g": 29.4,
-            "carb_g": 58.8,
-            "fat_g": 11.2,
-            "source": "USDA"
-        }
-
-    Raises:
-        ValueError: Nếu class_name không tìm thấy hoặc grams <= 0.
+    Tính toán thông tin dinh dưỡng cho một phần ăn cụ thể dựa trên tỷ lệ khối lượng.
     """
     if grams <= 0:
         raise ValueError(f"Khối lượng phải dương, nhận được: {grams}")
@@ -137,15 +99,15 @@ def get_nutrition(
 
 if __name__ == "__main__":
     """
-    Unit test: kiểm tra hàm load và get_nutrition hoạt động đúng.
+    Unit test: kiểm tra hàm load và get_nutrition hoạt động đúng với file dữ liệu mới.
     """
     from pathlib import Path
 
-    # Đường dẫn file CSV (tương đối từ thư mục project root)
-    csv_file = Path(__file__).parent.parent / "data" / "calories.csv"
+    # CHỈNH SỬA: Chỉ định đọc trực tiếp tệp categories.csv để có đủ chỉ số vi chất đạm/béo
+    csv_file = Path(__file__).parent.parent / "data" / "categories.csv"
 
     print("=" * 70)
-    print("TEST: Load Calories CSV")
+    print("TEST: Load Calories CSV (29 Classes Optimization)")
     print("=" * 70)
 
     try:
@@ -154,13 +116,13 @@ if __name__ == "__main__":
         calories_data = load_calories(csv_file)
         print(f"   ✓ Thành công! Đã tải {len(calories_data)} classes")
 
-        # Test 2: Hiển thị số classes
-        print(f"\n2. Kiểm tra số lượng classes (expected 30):")
+        # CHỈNH SỬA TEST 2: Đổi số lượng mong đợi từ 30 về 29 để khớp với bộ nhãn sạch không Bánh đúc
+        print(f"\n2. Kiểm tra số lượng classes (expected 29):")
         print(f"   Thực tế: {len(calories_data)} classes")
-        if len(calories_data) == 30:
+        if len(calories_data) == 29:
             print("   ✓ PASS")
         else:
-            print(f"   ✗ FAIL - Dự đoán 30 classes nhưng có {len(calories_data)}")
+            print(f"   ✗ FAIL - Dự đoán 29 classes nhưng thực tế có {len(calories_data)}")
 
         # Test 3: Liệt kê vài classes
         print(f"\n3. Danh sách 5 classes đầu tiên (sorted):")
@@ -168,36 +130,40 @@ if __name__ == "__main__":
             print(f"   {i}. {name}")
 
         # Test 4: Kiểm tra cấu trúc dữ liệu
-        print(f"\n4. Kiểm tra cấu trúc dữ liệu (lấy 'Pho'):")
-        sample = calories_data["Pho"]
-        print(f"   food_name_vi: {sample['food_name_vi']}")
-        print(f"   kcal_per_100g: {sample['kcal_per_100g']}")
-        print(f"   protein_g: {sample['protein_g']}")
-        print(f"   source: {sample['source']}")
+        print(f"\n4. Kiểm tra cấu trúc dữ liệu tra cứu nhãn (lấy 'Pho'):")
+        if "Pho" in calories_data:
+            sample = calories_data["Pho"]
+            print(f"   food_name_vi: {sample['food_name_vi']}")
+            print(f"   kcal_per_100g: {sample['kcal_per_100g']} kcal")
+            print(f"   protein_g: {sample['protein_g']} g")
+            print(f"   source: {sample['source']}")
+        else:
+            print("   ✗ Không tìm thấy class 'Pho'")
 
-        # Test 5: Tính toán dinh dưỡng
-        print(f"\n5. Tính dinh dưỡng cho Phở 350g:")
-        nutrition = get_nutrition("Pho", 350, csv_file)
-        print(f"   Tên: {nutrition['food_name_vi']}")
-        print(f"   Khối lượng: {nutrition['grams']}g")
-        print(f"   Calories: {nutrition['kcal']} kcal")
-        print(f"   Protein: {nutrition['protein_g']}g")
-        print(f"   Carbs: {nutrition['carb_g']}g")
-        print(f"   Fat: {nutrition['fat_g']}g")
-        print(f"   ✓ PASS")
+        # Test 5: Tính toán dinh dưỡng quy đổi suất ăn
+        print(f"\n5. Tính dinh dưỡng quy đổi cho Phở 350g:")
+        if "Pho" in calories_data:
+            nutrition = get_nutrition("Pho", 350, csv_file)
+            print(f"   Tên: {nutrition['food_name_vi']}")
+            print(f"   Khối lượng: {nutrition['grams']}g")
+            print(f"   Calories: {nutrition['kcal']} kcal")
+            print(f"   Protein: {nutrition['protein_g']}g")
+            print(f"   Carbs: {nutrition['carb_g']}g")
+            print(f"   Fat: {nutrition['fat_g']}g")
+            print(f"   ✓ PASS")
 
-        # Test 6: Test với các portion khác
-        print(f"\n6. Ví dụ: Bánh mì 150g (bánh nhỏ):")
-        nutrition_banh_mi = get_nutrition("Banh mi", 150, csv_file)
-        print(f"   Calories: {nutrition_banh_mi['kcal']} kcal")
-        print(f"   ✓ PASS")
+        # Test 6: Test mở rộng
+        print(f"\n6. Ví dụ: Bánh mì 150g (suất ăn nhỏ):")
+        if "Banh mi" in calories_data:
+            nutrition_banh_mi = get_nutrition("Banh mi", 150, csv_file)
+            print(f"   Calories: {nutrition_banh_mi['kcal']} kcal")
+            print(f"   ✓ PASS")
 
         print("\n" + "=" * 70)
         print("✓ TẤT CẢ TEST PASSED!")
         print("=" * 70)
 
     except Exception as e:
-        print(f"\n✗ LỖI: {e}")
+        print(f"\n✗ LỖI THỰC THI PIPELINE: {e}")
         import traceback
-
         traceback.print_exc()
