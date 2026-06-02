@@ -1,31 +1,31 @@
-class_name,food_name_vi,kcal_per_100g,protein_g,carb_g,fat_g,source
-Banh beo,Bánh bèo,90,3.5,14.2,2.1,USDA
-Banh bot loc,Bánh bột lọc,120,4.8,16.5,3.2,Nutritionix
-Banh can,Bánh căn,145,5.2,18.9,4.5,USDA
-Banh canh,Bánh canh,165,6.1,22.3,5.8,Nutritionix
-Banh chung,Bánh chưng,210,6.5,28.4,7.2,USDA
-Banh cuon,Bánh cuốn,130,5.1,15.8,4.1,Nutritionix
-Banh duc,Bánh đúc,105,3.8,13.5,3.2,USDA
-Banh gio,Bánh giò,145,5.5,17.2,5.3,Nutritionix
-Banh khot,Bánh khọt,155,5.8,18.9,5.9,USDA
-Banh mi,Bánh mì,290,9.5,42.1,8.2,Nutritionix
-Banh pia,Bánh pía,280,6.2,35.4,12.1,USDA
-Banh tet,Bánh tét,195,5.8,26.3,7.1,Nutritionix
-Banh trang nuong,Bánh tráng nướng,165,4.2,21.5,6.8,USDA
-Banh xeo,Bánh xèo,175,6.3,19.8,7.2,Nutritionix
-Bun bo Hue,Bún bò Huế,185,12.4,18.5,6.2,USDA
-Bun dau mam tom,Bún đậu mắm tôm,220,9.8,16.2,11.3,Nutritionix
-Bun mam,Bún mắm,165,9.2,15.8,6.1,USDA
-Bun rieu,Bún riêu,145,8.5,14.2,4.8,Nutritionix
-Bun thit nuong,Bún thịt nướng,195,11.2,18.4,7.5,USDA
-Ca kho to,Cá kho tộ,185,22.3,0.8,9.5,Nutritionix
-Canh chua,Canh chua,85,7.8,5.2,3.1,USDA
-Cao lau,Cao lầu,205,8.4,28.5,6.8,Nutritionix
-Chao long,Cháo lòng,125,9.5,8.3,4.2,USDA
-Com tam,Cơm tấm,155,4.8,28.2,2.3,Nutritionix
-Goi cuon,Gỏi cuốn,145,5.8,18.2,5.1,USDA
-Hu tieu,Hủ tiếu,175,8.2,22.4,5.3,Nutritionix
-Mi quang,Mì Quảng,215,8.9,28.5,6.2,USDA
-Nem chua,Nem chua,320,18.5,8.2,24.1,Nutritionix
-Pho,Phở,135,8.4,16.8,3.2,USDA
-Xoi xeo,Xôi xéo,180,5.2,32.1,3.5,Nutritionix
+﻿class_name,food_name_vi,total_weight_suat_g,total_suat_kcal,source
+Banh beo,Bánh bèo,100.0,280.3,NIN_Vietnam_Calculated
+Banh bot loc,Bánh bột lọc,140.0,289.3,NIN_Vietnam_Calculated
+Banh canh,Bánh canh,375.0,519.0,NIN_Vietnam_Calculated
+Banh chung,Bánh chưng,600.0,1920.0,NIN_Vietnam_Calculated
+Banh cuon,Bánh cuốn,130.0,254.2,NIN_Vietnam_Calculated
+Banh can,Bánh căn,150.0,300.6,NIN_Vietnam_Calculated
+Banh gio,Bánh giò,230.0,484.5,NIN_Vietnam_Calculated
+Banh khot,Bánh khọt,125.0,200.7,NIN_Vietnam_Calculated
+Banh mi,Bánh mì,260.0,571.8,NIN_Vietnam_Calculated
+Banh pia,Bánh pía,230.0,786.0,NIN_Vietnam_Calculated
+Banh trang nuong,Bánh tráng nướng,115.0,297.6,NIN_Vietnam_Calculated
+Banh tet,Bánh tét,550.0,1813.0,NIN_Vietnam_Calculated
+Banh xeo,Bánh xèo,327.0,640.2,NIN_Vietnam_Calculated
+Banh duc,Bánh đúc,220.0,744.4,NIN_Vietnam_Calculated
+Bun bo Hue,Bún bò Huế,365.0,446.5,NIN_Vietnam_Calculated
+Bun mam,Bún mắm,330.0,382.8,NIN_Vietnam_Calculated
+Bun rieu,Bún riêu,325.0,254.5,NIN_Vietnam_Calculated
+Bun thit nuong,Bún thịt nướng,335.0,427.7,NIN_Vietnam_Calculated
+Bun dau mam tom,Bún đậu mắm tôm,320.0,409.3,NIN_Vietnam_Calculated
+Canh chua,Canh chua,395.0,239.6,NIN_Vietnam_Calculated
+Cao lau,Cao lầu,285.0,271.7,NIN_Vietnam_Calculated
+Chao long,Cháo lòng,215.0,442.6,NIN_Vietnam_Calculated
+Ca kho to,Cá kho tộ,365.0,344.8,NIN_Vietnam_Calculated
+Com tam,Cơm tấm,330.0,840.0,NIN_Vietnam_Calculated
+Goi cuon,Gỏi cuốn,245.0,415.3,NIN_Vietnam_Calculated
+Hu tieu,Hủ tiếu,220.0,301.1,NIN_Vietnam_Calculated
+Mi quang,Mì Quảng,265.0,435.0,NIN_Vietnam_Calculated
+Nem chua,Nem chua,205.0,274.4,NIN_Vietnam_Calculated
+Pho,Phở,510.0,696.0,NIN_Vietnam_Calculated
+Xoi xéo,Xôi xéo,285.0,938.2,NIN_Vietnam_Calculated

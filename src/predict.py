@@ -30,7 +30,7 @@ from PIL import Image
 
 from src.model import create_model, GradCAM, get_target_layer
 from src.preprocess import get_val_transform, IMAGENET_MEAN, IMAGENET_STD
-from src.load_calories import load_calories
+from src.load_calories import load_full_nutrition
 from src.food_metadata import get_display_name, get_story, get_ingredients
 
 
@@ -40,9 +40,6 @@ from src.food_metadata import get_display_name, get_story, get_ingredients
 
 PROJECT_ROOT: Path = Path(__file__).parent.parent
 """Thu muc goc cua project."""
-
-CALORIES_CSV: Path = PROJECT_ROOT / "data" / "calories.csv"
-"""Duong dan mac dinh toi file calories.csv."""
 
 DEFAULT_CHECKPOINT: Path = PROJECT_ROOT / "checkpoints" / "best_model.pth"
 """Duong dan mac dinh toi best checkpoint."""
@@ -81,7 +78,6 @@ class FoodPredictor:
         self,
         checkpoint_path: Union[str, Path],
         device: str = "auto",
-        calories_csv: Optional[Union[str, Path]] = None,
     ) -> None:
         """
         Khoi tao predictor.
@@ -89,7 +85,6 @@ class FoodPredictor:
         Args:
             checkpoint_path: Duong dan toi model checkpoint (.pth).
             device: "auto" (tu dong), "cuda", hoac "cpu".
-            calories_csv: Duong dan toi calories.csv. None = dung mac dinh.
 
         Raises:
             FileNotFoundError: Neu checkpoint hoac calories file khong ton tai.
@@ -133,13 +128,12 @@ class FoodPredictor:
         # Class names - lay tu checkpoint hoac tu dataset folder
         self.class_names = self._get_class_names(checkpoint)
 
-        # Calories data
-        csv_path = Path(calories_csv) if calories_csv else CALORIES_CSV
+        # Nutrition data (macro + serving + micro-nutrients)
         try:
-            self.calories_data = load_calories(csv_path)
-            print(f"[OK] Loaded calories data: {len(self.calories_data)} classes")
+            self.calories_data = load_full_nutrition()
+            print(f"[OK] Loaded full nutrition data: {len(self.calories_data)} classes (NIN Vietnam)")
         except Exception as e:
-            print(f"[WARN] Khong load duoc calories: {e}")
+            print(f"[WARN] Khong load duoc nutrition data: {e}")
             self.calories_data = {}
 
         # Info
@@ -270,7 +264,20 @@ class FoodPredictor:
         }
 
     def _get_nutrition(self, class_name: str, serving_grams: float) -> Dict:
-        """Lay thong tin dinh duong cho 1 mon an."""
+        """
+        Lay thong tin dinh duong day du cho 1 mon an.
+
+        Bao gom: macro (kcal, protein, carb, fat) + vi chat (chat xo,
+        cholesterol, canxi, sat, vitamin...) + thong tin suat an thuc te.
+        Nguon: Vien Dinh duong Quoc gia Viet Nam (NIN).
+        """
+        empty_micros = {
+            "fiber_g": 0, "cholesterol_mg": 0, "calcium_mg": 0,
+            "phosphorus_mg": 0, "iron_mg": 0, "sodium_mg": 0,
+            "potassium_mg": 0, "vitamin_a_mcg": 0,
+            "vitamin_b1_mg": 0, "vitamin_c_mg": 0,
+        }
+
         if class_name not in self.calories_data:
             return {
                 "food_name_vi": get_display_name(class_name),
@@ -278,22 +285,42 @@ class FoodPredictor:
                 "serving_grams": serving_grams,
                 "serving_kcal": 0,
                 "protein_g": 0, "carb_g": 0, "fat_g": 0,
+                "real_serving_weight_g": 0,
+                "real_serving_kcal": 0,
+                **empty_micros,
                 "source": "N/A",
             }
 
         base = self.calories_data[class_name]
         scale = serving_grams / 100.0
 
-        return {
+        result = {
             "food_name_vi": base["food_name_vi"],
             "kcal_per_100g": base["kcal_per_100g"],
             "serving_grams": serving_grams,
             "serving_kcal": round(base["kcal_per_100g"] * scale, 1),
+            # Macros (scaled theo serving_grams)
             "protein_g": round(base["protein_g"] * scale, 1),
             "carb_g": round(base["carb_g"] * scale, 1),
             "fat_g": round(base["fat_g"] * scale, 1),
+            # Thong tin suat an thuc te (tu calories.csv)
+            "real_serving_weight_g": base.get("serving_weight_g", 0),
+            "real_serving_kcal": base.get("serving_kcal_total", 0),
+            # Micro-nutrients (scaled theo serving_grams)
+            "fiber_g": round(base.get("fiber_g", 0) * scale, 2),
+            "cholesterol_mg": round(base.get("cholesterol_mg", 0) * scale, 2),
+            "calcium_mg": round(base.get("calcium_mg", 0) * scale, 1),
+            "phosphorus_mg": round(base.get("phosphorus_mg", 0) * scale, 1),
+            "iron_mg": round(base.get("iron_mg", 0) * scale, 2),
+            "sodium_mg": round(base.get("sodium_mg", 0) * scale, 1),
+            "potassium_mg": round(base.get("potassium_mg", 0) * scale, 1),
+            "vitamin_a_mcg": round(base.get("vitamin_a_mcg", 0) * scale, 2),
+            "vitamin_b1_mg": round(base.get("vitamin_b1_mg", 0) * scale, 3),
+            "vitamin_c_mg": round(base.get("vitamin_c_mg", 0) * scale, 2),
             "source": base["source"],
         }
+
+        return result
 
     def predict_with_gradcam(
         self,
@@ -430,7 +457,7 @@ def quick_predict(
 
 
 def print_prediction(result: Dict) -> None:
-    """In ket qua du doan dep."""
+    """In ket qua du doan dep voi day du thong tin dinh duong."""
     print(f"\n{'='*60}")
     print(f" KET QUA DU DOAN")
     print(f"{'='*60}")
@@ -445,12 +472,50 @@ def print_prediction(result: Dict) -> None:
 
     if result["nutrition"]["kcal_per_100g"] > 0:
         n = result["nutrition"]
-        print(f"\n DINH DUONG ({n['serving_grams']:.0f}g):")
-        print(f"  Calories: {n['serving_kcal']:.0f} kcal")
-        print(f"  Protein:  {n['protein_g']:.1f}g")
-        print(f"  Carb:     {n['carb_g']:.1f}g")
-        print(f"  Fat:      {n['fat_g']:.1f}g")
-        print(f"  Nguon:    {n['source']}")
+
+        # Thong tin suat an thuc te (tu cong thuc nau an)
+        real_w = n.get('real_serving_weight_g', 0)
+        real_k = n.get('real_serving_kcal', 0)
+        if real_w > 0:
+            print(f"\n SUAT AN THUC TE (theo cong thuc):")
+            print(f"  Khoi luong: {real_w:.0f}g")
+            print(f"  Calories:   {real_k:.0f} kcal")
+
+        # Macro nutrients
+        print(f"\n DINH DUONG MACRO ({n['serving_grams']:.0f}g):")
+        print(f"  Calories:    {n['serving_kcal']:.0f} kcal")
+        print(f"  Protein:     {n['protein_g']:.1f}g")
+        print(f"  Carb:        {n['carb_g']:.1f}g")
+        print(f"  Fat:         {n['fat_g']:.1f}g")
+
+        # Micro nutrients (neu co)
+        has_micros = any(n.get(k, 0) > 0 for k in [
+            'fiber_g', 'cholesterol_mg', 'calcium_mg', 'iron_mg'
+        ])
+        if has_micros:
+            print(f"\n VI CHAT DINH DUONG ({n['serving_grams']:.0f}g):")
+            if n.get('fiber_g', 0) > 0:
+                print(f"  Chat xo:     {n['fiber_g']:.2f}g")
+            if n.get('cholesterol_mg', 0) > 0:
+                print(f"  Cholesterol: {n['cholesterol_mg']:.1f}mg")
+            if n.get('calcium_mg', 0) > 0:
+                print(f"  Canxi:       {n['calcium_mg']:.1f}mg")
+            if n.get('phosphorus_mg', 0) > 0:
+                print(f"  Photpho:     {n['phosphorus_mg']:.1f}mg")
+            if n.get('iron_mg', 0) > 0:
+                print(f"  Sat:         {n['iron_mg']:.2f}mg")
+            if n.get('sodium_mg', 0) > 0:
+                print(f"  Natri:       {n['sodium_mg']:.1f}mg")
+            if n.get('potassium_mg', 0) > 0:
+                print(f"  Kali:        {n['potassium_mg']:.1f}mg")
+            if n.get('vitamin_a_mcg', 0) > 0:
+                print(f"  Vitamin A:   {n['vitamin_a_mcg']:.1f}mcg")
+            if n.get('vitamin_b1_mg', 0) > 0:
+                print(f"  Vitamin B1:  {n['vitamin_b1_mg']:.3f}mg")
+            if n.get('vitamin_c_mg', 0) > 0:
+                print(f"  Vitamin C:   {n['vitamin_c_mg']:.2f}mg")
+
+        print(f"  Nguon:       {n['source']}")
 
     if result["story"]:
         print(f"\n CAU CHUYEN:")
@@ -494,6 +559,7 @@ def main():
         checkpoint_path=args.checkpoint,
         device=args.device,
     )
+
 
     # Du doan
     if args.gradcam:
