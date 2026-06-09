@@ -32,7 +32,7 @@ import matplotlib.cm as cm
 # CONSTANTS
 # ============================================================================
 
-SUPPORTED_MODELS: List[str] = ["efficientnet_b0", "mobilenet_v3_small"]
+SUPPORTED_MODELS: List[str] = ["efficientnet_b0", "mobilenet_v3_small", "resnet18"]
 """Danh sach model duoc ho tro."""
 
 NUM_CLASSES: int = 29
@@ -112,6 +112,23 @@ def create_model(
             nn.Linear(256, num_classes),
         )
 
+    elif model_name == "resnet18":
+        # ResNet-18 pretrained ImageNet (baseline model de so sanh)
+        weights = models.ResNet18_Weights.IMAGENET1K_V1 if pretrained else None
+        model = models.resnet18(weights=weights)
+
+        # Lay so features cua fc layer goc
+        in_features = model.fc.in_features  # 512
+
+        # Thay fc head
+        model.fc = nn.Sequential(
+            nn.Dropout(p=0.3),
+            nn.Linear(in_features, 256),
+            nn.ReLU(inplace=True),
+            nn.Dropout(p=0.2),
+            nn.Linear(256, num_classes),
+        )
+
     # Freeze backbone neu can
     if freeze_backbone:
         _freeze_backbone(model, model_name)
@@ -137,6 +154,11 @@ def _freeze_backbone(model: nn.Module, model_name: str) -> None:
     elif model_name == "mobilenet_v3_small":
         for param in model.features.parameters():
             param.requires_grad = False
+    elif model_name == "resnet18":
+        # Freeze tat ca tru fc head
+        for name, param in model.named_parameters():
+            if "fc" not in name:
+                param.requires_grad = False
 
 
 def unfreeze_backbone(
@@ -165,6 +187,23 @@ def unfreeze_backbone(
         backbone = model.features
     elif model_name == "mobilenet_v3_small":
         backbone = model.features
+    elif model_name == "resnet18":
+        # ResNet18: lay tat ca layers tru avgpool va fc
+        backbone_layers = [model.conv1, model.bn1, model.relu, model.maxpool,
+                          model.layer1, model.layer2, model.layer3, model.layer4]
+        # Unfreeze N layers cuoi
+        if num_layers is None:
+            for layer in backbone_layers:
+                for param in layer.parameters():
+                    param.requires_grad = True
+            print(f"[OK] Unfreeze ALL {len(backbone_layers)} backbone layers")
+        else:
+            num_layers = min(num_layers, len(backbone_layers))
+            for layer in backbone_layers[-num_layers:]:
+                for param in layer.parameters():
+                    param.requires_grad = True
+            print(f"[OK] Unfreeze {num_layers}/{len(backbone_layers)} backbone layers (tu cuoi)")
+        return
     else:
         raise ValueError(f"Model '{model_name}' khong duoc ho tro.")
 
@@ -252,6 +291,9 @@ def get_target_layer(model: nn.Module, model_name: str) -> nn.Module:
     elif model_name == "mobilenet_v3_small":
         # MobileNetV3: features[-1] la ConvBNActivation cuoi
         return model.features[-1]
+    elif model_name == "resnet18":
+        # ResNet18: layer4 la block cuoi cung
+        return model.layer4[-1]
     else:
         raise ValueError(f"Model '{model_name}' khong duoc ho tro.")
 
