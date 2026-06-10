@@ -182,6 +182,147 @@ Kết quả lưu trong `figures/` (Confusion Matrix, Classification Report, Per-
 
 ---
 
+## Demo ứng dụng Streamlit
+
+Ứng dụng demo được xây dựng bằng **Streamlit**, cho phép người dùng tải ảnh lên và nhận kết quả nhận diện trong vài giây.
+
+### Khởi chạy
+
+```bash
+streamlit run app.py
+```
+
+Mở trình duyệt tại `http://localhost:8501`
+
+### Giao diện tổng quan
+
+Ứng dụng gồm 2 phần:
+
+- **Sidebar (bên trái):** Tùy chỉnh cài đặt
+  - Khối lượng phần ăn: 100–600g (mặc định 350g)
+  - Số lượng dự đoán hiển thị: 3–10 (mặc định 5)
+  - Bật/tắt Grad-CAM
+  - Thông tin mô hình & nhóm thực hiện
+
+- **Khu vực chính:** Upload ảnh hoặc chọn ảnh mẫu → hiển thị kết quả
+
+### Chức năng 1 — Nhận diện món ăn
+
+Sau khi tải ảnh lên, hệ thống tự động:
+
+1. Tiền xử lý ảnh (resize 224×224, normalize ImageNet)
+2. Đưa qua mô hình EfficientNet-B0
+3. Hiển thị kết quả:
+
+```
+┌────────────────────┬──────────────────────────────┐
+│                    │  Kết quả nhận diện           │
+│   Ảnh đầu vào     │  ─────────────               │
+│                    │  Phở bò                      │
+│                    │  Confidence: 96.5%            │
+│                    │                              │
+│                    │  Top dự đoán:                │
+│                    │  Phở       ████████████ 96.5% │
+│                    │  Bún riêu  ██           3.1% │
+│                    │  Bún bò    █            0.4% │
+└────────────────────┴──────────────────────────────┘
+```
+
+- Tên món ăn hiển thị tiếng Việt có dấu
+- Thanh progress bar màu: xanh (>70%), vàng (40-70%), đỏ (<40%)
+
+### Chức năng 2 — Grad-CAM (Giải thích trực quan)
+
+Hiển thị 3 ảnh song song:
+
+```
+┌──────────────┬──────────────┬──────────────┐
+│  Ảnh gốc     │  Heatmap     │   Overlay    │
+│  (224×224)   │  (Jet color) │  (Gốc+Heat) │
+└──────────────┴──────────────┴──────────────┘
+```
+
+- **Ảnh gốc** — resize về 224×224
+- **Heatmap** — bản đồ nhiệt Grad-CAM (đỏ = tập trung cao)
+- **Overlay** — phủ heatmap lên ảnh gốc
+
+Vùng đỏ/vàng cho thấy mô hình đang "nhìn" vào đâu để quyết định. Ví dụ: với Phở, mô hình tập trung vào sợi phở + nước dùng thay vì viền bát.
+
+### Chức năng 3 — Tra cứu dinh dưỡng
+
+Thông tin tính theo khẩu phần tùy chỉnh (100–600g):
+
+```
+┌────────────┬────────────┬────────────┬────────────┐
+│  Calories  │  Protein   │   Carbs    │    Fat     │
+│  525 kcal  │   24.5g    │   62.3g    │   18.7g   │
+│  150/100g  │            │            │           │
+└────────────┴────────────┴────────────┴────────────┘
+
+▸ Vi chất dinh dưỡng chi tiết (mở rộng)
+  ┌──────────────────┬───────────────────┐
+  │ Chất xơ    2.1g  │ Natri     850mg  │
+  │ Canxi      45mg  │ Kali      320mg  │
+  │ Sắt       2.8mg  │ Vitamin A  25mcg │
+  │ Phospho   180mg  │ Vitamin C  12mg  │
+  └──────────────────┴───────────────────┘
+```
+
+Nguồn dữ liệu: Viện Dinh dưỡng Quốc gia Việt Nam.
+
+### Chức năng 4 — Câu chuyện & Nguyên liệu
+
+```
+┌──────────────────────┬──────────────────────┐
+│  Câu chuyện món ăn   │  Nguyên liệu chính  │
+│                      │                      │
+│  Phở có nguồn gốc   │  - Bánh phở          │
+│  từ Nam Định, đầu   │  - Xương bò          │
+│  thế kỷ 20...       │  - Hành, gừng        │
+│                      │  - Quế, hồi, thảo   │
+│                      │    quả               │
+└──────────────────────┴──────────────────────┘
+```
+
+### Chức năng 5 — Danh sách 29 món ăn
+
+Khi chưa upload ảnh, trang chính hiển thị danh sách 29 món ăn được hỗ trợ dạng grid 4 cột.
+
+### Luồng hoạt động
+
+```
+Người dùng upload ảnh
+        │
+        ▼
+┌─── Tiền xử lý ────┐
+│ Padding → Resize   │
+│ Normalize ImageNet │
+└────────┬───────────┘
+         │
+         ▼
+┌─── Mô hình ───────┐
+│ EfficientNet-B0    │──→ Top-K predictions
+│ (best_model.pth)   │──→ Grad-CAM heatmap
+└────────┬───────────┘
+         │
+         ▼
+┌─── Tra cứu ───────┐
+│ food_metadata.py   │──→ Tên VN, câu chuyện, nguyên liệu
+│ load_calories.py   │──→ Calories, macro, vi chất
+└────────┬───────────┘
+         │
+         ▼
+┌─── Hiển thị ──────┐
+│ Kết quả Top-K     │
+│ Grad-CAM 3 ảnh    │
+│ Bảng dinh dưỡng   │
+│ Story + Nguyên    │
+│   liệu            │
+└────────────────────┘
+```
+
+---
+
 ## Chiến lược huấn luyện
 
 ### Two-Phase Training
